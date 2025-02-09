@@ -1,7 +1,7 @@
 import pygame
 import multiprocessing
 import settingWindow
-import chooseCharacterWindow
+import fightWindow
 
 backgroundList = {
     "1": "image/MenuBG1.png",
@@ -49,7 +49,6 @@ def DrawBackground():
     image = pygame.image.load(backgroundImage).convert()
     image = pygame.transform.scale(image,(WIDTH,HEIGHT))
     SCREEN.blit(image,(0,0))
-    print(backgroundImage)
 
 def UpdateFunctionUsing():
     global controller
@@ -77,7 +76,7 @@ def OnPressEnter():
         windowProcess.start()
         windowProcess.join()
     elif functionUsing == "play":
-        windowProcess = multiprocessing.Process(target = chooseCharacterWindow.RunWindow)
+        windowProcess = multiprocessing.Process(target = fightWindow.RunWindow)
         windowProcess.start()
         windowProcess.join()
 
